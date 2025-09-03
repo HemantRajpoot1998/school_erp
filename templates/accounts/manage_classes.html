@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manage Classes</h2>
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Class</th>
+        <th>Course</th>
+        <th>Teacher</th>
+    </tr>
+    {% for c in classes %}
+    <tr>
+        <td>{{ c.name }}</td>
+        <td>{{ c.course.name }}</td>
+        <td>{{ c.teacher.user.username }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No classes found.</td></tr>
+    {% endfor %}
+</table>
+<a href="{% url 'dashboard' %}">⬅ Back to Dashboard</a>
+{% endblock %}
